@@ -1,0 +1,45 @@
+Google Clould Platformに登録
+（クレカ登録すると300ドル分のキャッシュもらえる）
+
+Computer Engineの作成
+- VMインスタンス作成
+- プロジェクト名は適当
+- インスタンス名は適当
+- ８コア、30GBがほしい（中期で戦うなら60GBほしい）
+- Ubuntu 16 LTS（サイズは100GB)
+- 全てのアクセス権を許可
+- SSL認証を登録
+
+
+Storegeにデータを上げる
+- バケットを作成（Regional:米国-central）
+- 「input」フォルダの作成
+- そこにKaggleでダウンロードしてきたデータをドラッグアンドドロップ
+
+
+GitHubリポジトリの作成（Private）
+
+
+
+Ubuntuの設定
+- sudo apt install git build-essential tmux htop
+- sudo apt update
+- sudo apt install git build-essential tmux htop
+- wget https://repo.continuum.io/archive/Anaconda3-2018.12-Linux-x86_64.sh
+- sh Anaconda3-5.0.0.1-Linux-x86_64.sh
+ - [enter or yes]
+- source .bashrc
+
+
+tmux上で作業
+- git clone リポジトリ
+- mkdir input
+- gsutil -m -r gs://kaggle-porto/input/* input/
+- sudo apt-get install p7zip-full
+- 7z x train.7z
+- 7z x test.7z
+- 7z x sample+submission.7z
+- rm *7z
+
+- mkdir ../protos
+- vim load_data.py
